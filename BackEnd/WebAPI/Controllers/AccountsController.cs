@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using WebApi.Entities;
-using WebApi.Models.Accounts;
-using WebApi.Services;
+using WebAPI.Entities;
+using WebAPI.Models.Accounts;
+using WebAPI.Services;
 
-namespace WebApi.Controllers
+namespace WebAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]

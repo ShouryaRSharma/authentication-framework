@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
-using WebApi.Helpers;
+using WebAPI.Helpers;
 
-namespace WebApi.Middleware
+namespace WebAPI.Middleware
 {
     public class ErrorHandlerMiddleware
     {

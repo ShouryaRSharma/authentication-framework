@@ -6,9 +6,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebApi.Helpers;
+using WebAPI.Helpers;
 
-namespace WebApi.Middleware
+namespace WebAPI.Middleware
 {
     public class JwtMiddleware
     {

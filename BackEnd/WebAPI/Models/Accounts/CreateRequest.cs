@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
-using WebApi.Entities;
+using WebAPI.Entities;
 
-namespace WebApi.Models.Accounts
+namespace WebAPI.Models.Accounts
 {
     public class CreateRequest
     {

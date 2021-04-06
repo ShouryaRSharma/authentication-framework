@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using WebApi.Helpers;
-using WebApi.Middleware;
-using WebApi.Services;
+using WebAPI.Helpers;
+using WebAPI.Middleware;
+using WebAPI.Services;
 
-namespace WebApi
+namespace WebAPI
 {
     public class Startup
     {

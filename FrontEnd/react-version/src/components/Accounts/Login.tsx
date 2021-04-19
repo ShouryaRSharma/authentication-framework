@@ -105,10 +105,15 @@ export function Login({history, location}: any) {
                                         </Field>
                                     </Box>
                                     <div>
-                                        <Button mt={2} colorScheme="teal" isLoading={isSubmitting} loadingText="Submitting" type="submit" float="right">
-                                            Forgot Password
+                                        <Button mt={2} colorScheme="teal" isLoading={isSubmitting} loadingText="Submitting" type="submit">
+                                            Login
                                         </Button>
-                                        <Button mt={2} colorScheme="red"><Link to="login">Cancel</Link></Button> 
+                                        <Button mt={2} colorScheme="cyan"><Link to="register">Register</Link></Button>
+                                    </div>
+                                    <div>
+                                        <Button mt={2} colorScheme="red" float="right">
+                                            <Link to="forgot-password">Forgot Password</Link>
+                                        </Button>
                                     </div>
                                 </Form>
                             )}

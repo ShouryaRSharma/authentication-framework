@@ -122,6 +122,5 @@ export function Login({history, location}: any) {
                 </Box>
             </Flex>
         </Box>
-        
     )
 }

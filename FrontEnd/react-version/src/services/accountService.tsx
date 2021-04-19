@@ -34,19 +34,14 @@ interface RegisterParams {
     acceptTerms?: boolean
 }
 
-interface LoginProps {
-    email: string,
-    password: string
-}
-
 interface ResetParams {
     token?: string,
     password?: string,
     confirmPassword?: string
 }
 
-function login(loginObject: LoginProps) {
-    return fetchWrapper.post(`${baseUrl}/authenticate`, { loginObject }.loginObject)
+function login(email: string, password: string) {
+    return fetchWrapper.post(`${baseUrl}/authenticate`, { email, password })
         .then(user => {
             // publish user to subscribers and start timer to refresh token
             userSubject.next(user);

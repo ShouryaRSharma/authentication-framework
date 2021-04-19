@@ -17,24 +17,35 @@ import { accountService } from '../../services/accountService'
 import { alertService } from '../../services/alertService'
 
 interface PasswordReset {
-    email: string
+    email: string,
+    password: string
 }
 
-export function ForgotPassword() {
+export function Login({history, location}: any) {
     const initialValues: PasswordReset = {
-        email: ''
+        email: '',
+        password: ''
     }
 
     const validationSchema = Yup.object().shape({
-        email: Yup.string().email('Email is invalid').required('Email is required')
+        email: Yup.string().email('Email is invalid').required('Email is required'),
+        password: Yup.string().required('Please Enter your password').matches(
+                /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+                "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+                )
     })
 
-    function onSubmit({ email }: any, { setSubmitting }: any) {
+    function onSubmit({ email, password }: any, { setSubmitting }: any) {
         alertService.clear();
-        accountService.forgotPassword(email)
-            .then(() => alertService.success('Please check your email for password reset instructions', {}))
-            .catch(err => alertService.error(err))
-            .finally(() => setSubmitting(false));
+        accountService.login(email, password)
+            .then(() => {
+                const { from } = location.state || { from: { pathname: "/" } };
+                history.push(from);
+            })
+            .catch(err => {
+                setSubmitting(false)
+                alertService.error(err)
+            });
     }
 
     return (
@@ -73,13 +84,32 @@ export function ForgotPassword() {
                                             </FormControl>
                                         )}
                                         </Field>
-                                        <div>
-                                            <Button mt={2} colorScheme="teal" isLoading={isSubmitting} loadingText="Submitting" type="submit" float="right">
-                                                Forgot Password
-                                            </Button>
-                                            <Button mt={2} colorScheme="red"><Link to="login">Cancel</Link></Button> 
-                                        </div>
                                     </Box>
+                                    <Box paddingBottom={3}>
+                                        <Field name="password" type="password" width={"100%"}>
+                                        {({ field, form }: any) => (
+                                            <FormControl isInvalid={form.errors.password && form.touched.password}>
+                                                <FormLabel htmlFor="password">Password</FormLabel>
+                                                <Input
+                                                    {...field}
+                                                    id="email"
+                                                    placeholder="email"
+                                                    value={values.password}
+                                                    onChange={handleChange}
+                                                />
+                                                <FormErrorMessage>
+                                                    {form.errors.password}
+                                                </FormErrorMessage>
+                                            </FormControl>
+                                        )}
+                                        </Field>
+                                    </Box>
+                                    <div>
+                                        <Button mt={2} colorScheme="teal" isLoading={isSubmitting} loadingText="Submitting" type="submit" float="right">
+                                            Forgot Password
+                                        </Button>
+                                        <Button mt={2} colorScheme="red"><Link to="login">Cancel</Link></Button> 
+                                    </div>
                                 </Form>
                             )}
                         </Formik>

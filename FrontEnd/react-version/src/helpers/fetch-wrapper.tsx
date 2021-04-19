@@ -1,5 +1,5 @@
 import config from 'config';
-import { accountService } from './services/accountService'
+import { accountService } from '../services/accountService'
 
 export const fetchWrapper = {
     get,
@@ -16,7 +16,7 @@ function get(url: string) {
     return fetch(url, requestOptions).then(handleResponse);
 }
 
-function post(url: string, body: BodyInit) {
+function post(url: string, body: any) {
     const requestOptions: RequestInit = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', ...authHeader(url) },
@@ -26,7 +26,7 @@ function post(url: string, body: BodyInit) {
     return fetch(url, requestOptions).then(handleResponse);
 }
 
-function put(url: string, body: BodyInit) {
+function put(url: string, body: any) {
     const requestOptions = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', ...authHeader(url) },

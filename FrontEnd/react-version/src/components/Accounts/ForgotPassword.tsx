@@ -15,10 +15,7 @@ import {
   } from "@chakra-ui/react";
 import { accountService } from '../../services/accountService'
 import { alertService } from '../../services/alertService'
-
-interface PasswordReset {
-    email: string
-}
+import { PasswordReset } from '../../types/accounts'
 
 export function ForgotPassword() {
     const initialValues: PasswordReset = {

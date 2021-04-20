@@ -15,14 +15,10 @@ import {
   } from "@chakra-ui/react";
 import { accountService } from '../../services/accountService'
 import { alertService } from '../../services/alertService'
+import { LoginParams, RouteProps } from '../../types/accounts'
 
-interface PasswordReset {
-    email: string,
-    password: string
-}
-
-export function Login({history, location}: any) {
-    const initialValues: PasswordReset = {
+export function Login({history, location}: RouteProps) {
+    const initialValues: LoginParams = {
         email: '',
         password: ''
     }
@@ -39,8 +35,8 @@ export function Login({history, location}: any) {
         alertService.clear();
         accountService.login(email, password)
             .then(() => {
-                const { from } = location.state || { from: { pathname: "/" } };
-                history.push(from);
+                const { from } = location?.state || { from: { pathname: "/" } };
+                history?.push(from);
             })
             .catch(err => {
                 setSubmitting(false)

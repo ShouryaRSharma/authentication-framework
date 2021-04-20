@@ -17,16 +17,7 @@ import {
   } from "@chakra-ui/react";
 import { accountService } from '../../services/accountService'
 import { alertService } from '../../services/alertService'
-
-interface RegisterParams {
-    title: string,
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string,
-    confirmPassword: string,
-    acceptTerms: boolean
-}
+import { RegisterParams } from '../../types/accounts'
 
 export function Login({history, location}: any) {
     const initialValues: RegisterParams = {

@@ -1,6 +1,6 @@
 import { Subject } from 'rxjs';
 import { filter } from 'rxjs/operators';
-
+import { AlertTypeParams } from '../types/services'
 const alertSubject = new Subject();
 const defaultId = 'default-alert';
 
@@ -14,7 +14,7 @@ export const alertService = {
     clear
 };
 
-export const AlertType = {
+export const AlertType: AlertTypeParams = {
     Success: 'success',
     Error: 'error',
     Info: 'info',

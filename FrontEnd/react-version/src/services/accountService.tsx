@@ -1,7 +1,7 @@
 import { BehaviorSubject } from 'rxjs';
-
 import config from 'config';
 import { fetchWrapper, history } from '../helpers';
+import { RegisterParams, ResetParams } from '../types/services'
 
 const userSubject = new BehaviorSubject<any>(null);
 const baseUrl = `${config.apiUrl}/accounts`;
@@ -23,22 +23,6 @@ export const accountService = {
     user: userSubject.asObservable(),
     get userValue () { return userSubject.value }
 };
-
-interface RegisterParams {
-    title?: string,
-    firstName?: string,
-    lastName?: string,
-    email?: string,
-    password?: string, 
-    confirmPassword?: string,
-    acceptTerms?: boolean
-}
-
-interface ResetParams {
-    token?: string,
-    password?: string,
-    confirmPassword?: string
-}
 
 function login(email: string, password: string) {
     return fetchWrapper.post(`${baseUrl}/authenticate`, { email, password })

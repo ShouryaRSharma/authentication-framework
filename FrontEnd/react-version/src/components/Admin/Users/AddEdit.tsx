@@ -287,13 +287,12 @@ export function AddEdit({ history, match }: RouteProps) {
                                         </Box>
                                         <div>
                                             <Button mt={2} colorScheme="teal" isLoading={isSubmitting} loadingText="Submitting" type="submit">
-                                                Register
+                                                Save
                                             </Button>
-                                            <Button mt={2} colorScheme="cyan"><Link to="login">Cancel</Link></Button>
+                                            <Button mt={2} colorScheme="cyan"><Link to={isAddMode ? '.' : '..'}>Cancel</Link></Button>
                                         </div>
                                     </Form>
                                 )
-
                             }}
                         </Formik>
                     </Stack>

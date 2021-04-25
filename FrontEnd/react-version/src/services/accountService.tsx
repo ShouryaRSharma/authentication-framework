@@ -1,7 +1,7 @@
 import { BehaviorSubject } from 'rxjs';
 import config from 'config';
 import { fetchWrapper, history } from '../helpers';
-import { RegisterParams, ResetParams } from '../types/services'
+import { RegisterServiceParams, ResetServiceParams, AddParams } from '../types'
 
 const userSubject = new BehaviorSubject<any>(null);
 const baseUrl = `${config.apiUrl}/accounts`;
@@ -52,7 +52,7 @@ function refreshToken() {
         });
 }
 
-function register(params: RegisterParams) {
+function register(params: RegisterServiceParams) {
     return fetchWrapper.post(`${baseUrl}/register`, params);
 }
 
@@ -68,7 +68,7 @@ function validateResetToken(token: string) {
     return fetchWrapper.post(`${baseUrl}/validate-reset-token`, { token });
 }
 
-function resetPassword({ token, password, confirmPassword }: ResetParams) {
+function resetPassword({ token, password, confirmPassword }: ResetServiceParams) {
     return fetchWrapper.post(`${baseUrl}/reset-password`, { token, password, confirmPassword });
 }
 
@@ -76,15 +76,15 @@ function getAll() {
     return fetchWrapper.get(baseUrl);
 }
 
-function getById(id: Number) {
+function getById(id: number) {
     return fetchWrapper.get(`${baseUrl}/${id}`);
 }
 
-function create(params: any) {
+function create(params: AddParams) {
     return fetchWrapper.post(baseUrl, params);
 }
 
-function update(id: Number, params: RegisterParams) {
+function update(id: number, params: RegisterServiceParams) {
     return fetchWrapper.put(`${baseUrl}/${id}`, params)
         .then(user => {
             // update stored user if the logged in user updated their own record
@@ -98,7 +98,7 @@ function update(id: Number, params: RegisterParams) {
 }
 
 // prefixed with underscore because 'delete' is a reserved word in javascript
-function _delete(id: Number) {
+function _delete(id: number) {
     return fetchWrapper.delete(`${baseUrl}/${id}`)
         .then(x => {
             // auto logout if the logged in user deleted their own record

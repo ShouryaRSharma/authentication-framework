@@ -16,7 +16,7 @@ import {
   } from "@chakra-ui/react";
 import { accountService } from '../../services/accountService';
 import { alertService } from '../../services/alertService';
-import { RouteProps, TokenProps, ResetParams } from '../../types/accounts'
+import { RouteProps, TokenProps, ResetParams } from '../../types'
 
 export function ResetPassword({ history }: RouteProps) {
     const TokenStatus: TokenProps = {

@@ -15,7 +15,7 @@ import {
   } from "@chakra-ui/react";
 import { accountService } from '../../services/accountService'
 import { alertService } from '../../services/alertService'
-import { LoginParams, RouteProps } from '../../types/accounts'
+import { LoginParams, RouteProps } from '../../types'
 
 export function Login({history, location}: RouteProps) {
     const initialValues: LoginParams = {

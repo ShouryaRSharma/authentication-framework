@@ -1,4 +1,4 @@
-export interface RegisterParams {
+export interface RegisterServiceParams {
     title?: string,
     firstName?: string,
     lastName?: string,
@@ -8,7 +8,7 @@ export interface RegisterParams {
     acceptTerms?: boolean
 }
 
-export interface ResetParams {
+export interface ResetServiceParams {
     token?: string,
     password?: string,
     confirmPassword?: string

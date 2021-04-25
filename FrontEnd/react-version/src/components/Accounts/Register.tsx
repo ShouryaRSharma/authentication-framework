@@ -17,7 +17,7 @@ import {
   } from "@chakra-ui/react";
 import { accountService } from '../../services/accountService'
 import { alertService } from '../../services/alertService'
-import { RegisterParams } from '../../types/accounts'
+import { RegisterParams } from '../../types'
 
 export function Login({history, location}: any) {
     const initialValues: RegisterParams = {

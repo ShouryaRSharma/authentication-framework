@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 import { accountService } from '../../services/accountService'
 import { alertService } from '../../services/alertService'
-import { RouteProps, EmailStatusParams } from '../../types/accounts'
+import { EmailStatusParams, RouteProps } from '../../types'
 import { Heading } from '@chakra-ui/react';
 
 export function VerifyEmail({ history }: RouteProps) {

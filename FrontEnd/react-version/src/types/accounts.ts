@@ -1,5 +1,3 @@
-import { RouteComponentProps } from 'react-router-dom';
-
 export interface PasswordReset {
     email: string
 }
@@ -17,12 +15,6 @@ export interface RegisterParams {
 export interface LoginParams {
     email: string,
     password: string
-}
-
-export interface RouteProps {
-    location?: RouteComponentProps["location"],
-    history?: RouteComponentProps["history"],
-    match?: RouteComponentProps["match"],
 }
 
 export interface TokenProps {
